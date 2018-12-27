@@ -1,11 +1,11 @@
 ## Amazon Cognito Passwordless Email Auth
 
-This is the sample code that comes together with the blog post on poasswordless e-mail auth in Amazon Cognito: -link to blog-
+This is the sample code that comes together with the blog post on passwordless e-mail auth in Amazon Cognito: -link to blog-
 
-The sample code consists of the following parts:
+The sample code consists of two parts, each in a separate folder:
 
-- A Serverless Application that includes a Cognito user pool with the necessary setup (Lambda functions): [Cognito](./cognito)
-- A Web Client written that authenticates with the Cognito user pool: [Client Web App](./client)
+- [./cognito](./cognito): a Serverless Application that includes a Cognito user pool with the necessary setup
+- [./client](./client): a Web Client that authenticates with the Cognito user pool
 
 ## License Summary
 
