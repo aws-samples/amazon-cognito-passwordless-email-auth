@@ -1,0 +1,11 @@
+/*
+   Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: MIT-0
+*/
+
+.main {
+    min-height: 95vh;
+    min-width: 100%;
+    top: 10px;
+    bottom: 10px;
+}

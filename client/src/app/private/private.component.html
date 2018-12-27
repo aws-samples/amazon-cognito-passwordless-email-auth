@@ -1,0 +1,39 @@
+<!--
+   Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: MIT-0
+-->
+
+<mat-card fxFlex="1 1 auto" ngClass="app-card">
+
+    <div ngClass="expand-width" fxHide.xs></div>
+
+    <mat-card-header>
+        <img mat-card-avatar src="https://d2597oqac71veb.cloudfront.net/201406190823/images/cognito-icon.png">
+        <mat-card-title>Private</mat-card-title>
+        <mat-card-subtitle>This is the information on your user
+            that is stored in the Amazon Cognito User Pool</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="userDetailsForm" fxLayout="column">
+            <div *ngFor="let detail of (userDetails | async)" fxLayout="row">
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="{{ detail.Name }}" [formControlName]="detail.Name">
+                </mat-form-field>
+            </div>
+            <div>
+                <div fxFlex></div>
+                <mat-spinner *ngIf="busy | async" [diameter]="35"></mat-spinner>
+                <div fxFlex></div>
+            </div>
+        </form>
+    </mat-card-content>
+
+    <p *ngIf="errorMessage | async">{{ errorMessage | async }}</p>
+
+    <mat-card-content fxLayout="row">
+        <div fxFlex></div>
+        <a routerLink='/sign-out' routerLinkActive="active">Sign out</a>
+    </mat-card-content>
+
+</mat-card>

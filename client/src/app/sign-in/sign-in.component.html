@@ -1,0 +1,40 @@
+<!--
+   Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: MIT-0
+-->
+
+<mat-card fxFlex="1 1 auto" ngClass="app-card">
+
+  <mat-card-header>
+    <img mat-card-avatar src="https://d2597oqac71veb.cloudfront.net/201406190823/images/cognito-icon.png">
+    <mat-card-title>Please Sign In</mat-card-title>
+    <mat-card-subtitle>Enter your e-mail address and we'll send you a one-time secret sign-in code</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="E-mail" [formControl]="email" type="email" email />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div fxFlex></div>
+    <button mat-stroked-button color="primary" (click)="signIn()" [disabled]="(busy | async)">
+      <div fxFlex></div>
+      <div *ngIf="!(busy | async)">SEND SIGN-IN CODE</div>
+      <mat-spinner *ngIf="busy | async" [diameter]="35"></mat-spinner>
+      <div fxFlex></div>
+    </button>
+    <div fxFlex></div>
+  </mat-card-actions>
+
+  <p *ngIf="errorMessage | async">{{ errorMessage | async }}</p>
+
+  <mat-card-content>
+    <div fxFlex></div>
+    <p>Not a member yet? <a routerLink='/sign-up' routerLinkActive="active">Sign up</a></p>
+  </mat-card-content>
+
+</mat-card>
