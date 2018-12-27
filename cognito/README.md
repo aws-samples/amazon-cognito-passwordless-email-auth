@@ -35,13 +35,14 @@ NOTE: To deploy this application _**please pick an AWS Region in which you can u
 
 #### How to deploy the Serverless Application with AWS SAM CLI
 
-1. Clone this repo: `git clone https://github.com/ottokruse/cognito-email-auth-backend`
-2. Install dependencies: `cd cognito-email-auth-backend && npm install`
-3. Set the following environment variables (all mandatory):
+1. Clone this repo `git clone https://github.com/aws-samples/amazon-cognito-passwordless-email-auth.git`
+2. Enter cognito directory: `cd amazon-cognito-passwordless-email-auth/cognito`
+3. Install dependencies: `npm install`
+4. Set the following environment variables (all mandatory):
   - S3_BUCKET_NAME='the bucket name of the bucket you want to use for your SAM deployment'
   - SES_FROM_ADDRESS='the verfied e-mail address in SES the e-mails will be sent from'
   - STACK_NAME='the name you want the CloudFormation stack to be created with'
   - USER_POOL_NAME='the name you want your User Pool to be created with'
-4. Build and deploy the application: `npm run bd` This runs AWS SAM CLI
+5. Build and deploy the application: `npm run bd` This runs AWS SAM CLI
 
 if that succeeded, you have succesfully deployed your application. The outputs of the CloudFormation stack will contain the ID's of the User Pool and Client, that you can use in your client web app.
