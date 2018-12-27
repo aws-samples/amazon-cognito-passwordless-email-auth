@@ -6,10 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "attribution": "generate-attribution && mv oss-attribution/attribution.txt LICENSE-THIRD-PARTY && rm -rf oss-attribution"
+    "attribution": "generate-attribution && mv oss-attribution/attribution.txt LICENSE-THIRD && rm -rf oss-attribution"
   },
   "private": false,
   "dependencies": {
