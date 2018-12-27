@@ -1,0 +1,51 @@
+<!--
+   Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   SPDX-License-Identifier: MIT-0
+-->
+
+<mat-card fxFlex="1 1 auto" ngClass="app-card">
+
+  <mat-card-header>
+    <img mat-card-avatar src="https://d2597oqac71veb.cloudfront.net/201406190823/images/cognito-icon.png">
+    <mat-card-title>Complete Sign-In</mat-card-title>
+    <mat-card-subtitle>Please enter the secret sign-in code that was 
+      sent to {{ email | async }} to complete sign-in</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form fxLayout="row wrap" fxLayoutGap="5%">
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit1" #digit1el type="tel" pattern="\d*">
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit2" #digit2el type="tel" pattern="\d" maxlength="1">
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit3" #digit3el type="tel" pattern="\d" maxlength="1">
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit4" #digit4el type="tel" pattern="\d" maxlength="1">
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit5" #digit5el type="tel" pattern="\d" maxlength="1">
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 12%" class="digit-input">
+        <input matInput [formControl]="digit6" #digit6el type="tel" pattern="\d" maxlength="1">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div fxFlex></div>
+    <button mat-stroked-button color="primary" (click)="submit()">
+      <div fxFlex></div>
+      <div *ngIf="!(busy | async)">CONTINUE</div>
+      <mat-spinner *ngIf="busy | async" [diameter]="35"></mat-spinner>
+      <div fxFlex></div>
+    </button>
+    <div fxFlex></div>
+  </mat-card-actions>
+
+  <p *ngIf="errorMessage | async">{{ errorMessage | async }}</p>
+
+</mat-card>
