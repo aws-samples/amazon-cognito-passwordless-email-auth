@@ -1,0 +1,16 @@
+{
+  "name": "create-auth-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create-auth-challenge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-secure-random-digit": "^1.0.7"
+  },
+  "devDependencies": {}
+}
