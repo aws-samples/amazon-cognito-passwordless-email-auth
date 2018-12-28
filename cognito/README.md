@@ -15,7 +15,7 @@ Deploy either through the Serverless Application Repository or with the AWS SAM 
 
 ### Deployment trough Serverless Application Repository
 
-This is the easiest path. Find the Serverless Application in the [Repository](https://console.aws.amazon.com/serverlessrepo/) using tags "cognito" and "passwordless" or navigate to it directly with [this link](https://serverlessrepo.aws.amazon.com/#/applications/arn:aws:serverlessrepo:us-east-1:520945424137:applications~cognito-passwordless-email-auth).
+This is the easiest path. Find the Serverless Application in the [Repository](https://console.aws.amazon.com/serverlessrepo/) using tags "cognito" and "passwordless" or navigate to it directly with [this link](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:520945424137:applications~amazon-cognito-passwordless-email-auth).
 
 #### Pre-requisite
 
