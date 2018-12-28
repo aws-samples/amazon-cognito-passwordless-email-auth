@@ -46,3 +46,7 @@ NOTE: To deploy this application _**please pick an AWS Region in which you can u
 5. Build and deploy the application: `npm run bd` This runs AWS SAM CLI
 
 if that succeeded, you have succesfully deployed your application. The outputs of the CloudFormation stack will contain the ID's of the User Pool and Client, that you can use in your client web app.
+
+## License Summary
+
+This sample code is made available under a modified MIT license. See the LICENSE file.

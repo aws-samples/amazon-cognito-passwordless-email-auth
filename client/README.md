@@ -22,3 +22,7 @@ The Amazon Cognito User Pool back end that implements the passwordless e-mail au
 5. Run the web app: `npm run start`
 
 If you've done all this, the web app should be running at http://localhost:4200
+
+## License Summary
+
+This sample code is made available under a modified MIT license. See the LICENSE file.
