@@ -35,7 +35,7 @@ export class SignUpComponent {
       this.router.navigate(['/enter-secret-code']);
     } catch (err) {
       console.log(err);
-      this.errorMessage_.next(err.message || 'Oops... something went wrong');
+      this.errorMessage_.next(err.message || err);
     } finally {
       this.busy_.next(false);
     }

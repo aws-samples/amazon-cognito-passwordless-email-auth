@@ -44,7 +44,7 @@ export class PrivateComponent implements OnInit {
       });
       this.userDetails_.next(userDetails);
     } catch (err) {
-      this.errorMessage_.next(err);
+      this.errorMessage_.next(err.message || err);
     } finally {
       this.busy_.next(false);
     }

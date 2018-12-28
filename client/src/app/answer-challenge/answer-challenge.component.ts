@@ -99,7 +99,7 @@ export class AnswerChallengeComponent implements OnInit, OnDestroy, AfterContent
         this.errorMessage_.next('That\'s not the right code');
       }
     } catch (err) {
-      this.errorMessage_.next(err.message || 'Oops ... something went wrong');
+      this.errorMessage_.next(err.message || err);
     } finally {
       this.busy_.next(false);
     }
