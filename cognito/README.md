@@ -17,7 +17,7 @@ Deploy either through the Serverless Application Repository or with the AWS SAM 
 
 This is the easiest path. Find the Serverless Application in the [Repository](https://console.aws.amazon.com/serverlessrepo/) using tags "cognito" and "passwordless" or navigate to it directly with [this link](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:520945424137:applications~amazon-cognito-passwordless-email-auth).
 
-If you deploy the Serverless Application you'll get a CloudFormation stack that includes a preconfigured Cognito user pool. The outputs of the CloudFormation stack will contain the ID's of the user pool and client, that you can use in your client web app.
+If you deploy the Serverless Application you'll get a CloudFormation stack with the resources mentioned above. The outputs of the CloudFormation stack will contain the ID's of the user pool and client, that you can use in your client web app.
 
 #### Pre-requisite
 
