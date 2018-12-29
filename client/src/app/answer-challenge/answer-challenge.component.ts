@@ -44,22 +44,27 @@ export class AnswerChallengeComponent implements OnInit, OnDestroy, AfterContent
 
   ngOnInit() {
 
+    // Get e-mail address the code was sent to
+    // It is a public challenge parameter so let's try it that way
     this.auth.getPublicChallengeParameters()
       .then(param => this.email_.next(param.email));
 
+    // Move focus to next field upon entry of a digit
     [2, 3, 4, 5, 6].forEach(digit => {
       const prev = this[`digit${digit - 1}`] as FormControl;
       const next = this[`digit${digit}element`] as ElementRef;
-      const subscription = prev.valueChanges.pipe(
+      this.allSubscriptions.add(prev.valueChanges.pipe(
         tap(() => {
           if (prev.value) {
             next.nativeElement.focus();
             next.nativeElement.setSelectionRange(0, 1);
           }
         })
-      ).subscribe();
-      this.allSubscriptions.add(subscription);
+      ).subscribe());
     });
+
+    // If the user copy pastes the code into the first digit field
+    // we'll be so kind to cut it in 6 pieces and distribute it to the right fields
     this.allSubscriptions.add(
       this.digit1.valueChanges.pipe(
         tap(value => {
