@@ -14,7 +14,8 @@
   <mat-card-content>
     <form fxLayout="column">
       <mat-form-field>
-        <input matInput placeholder="E-mail" [formControl]="email" type="email" email />
+        <input matInput placeholder="E-mail" [formControl]="email" type="email" email name="email"
+          autocomplete="username email" />
       </mat-form-field>
     </form>
   </mat-card-content>

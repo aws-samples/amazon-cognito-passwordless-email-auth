@@ -5,41 +5,42 @@
 
 <mat-card fxFlex="1 1 auto" ngClass="app-card">
 
-    <div ngClass="expand-width" fxHide.xs></div>
-  
-    <mat-card-header>
-      <mat-icon mat-card-avatar>lock</mat-icon>
-      <mat-card-title>Please Sign Up</mat-card-title>
-      <mat-card-subtitle>We'd be happy to have you on board!</mat-card-subtitle>
-    </mat-card-header>
-  
-    <mat-card-content>
-      <form fxLayout="column">
-        <mat-form-field>
-          <input matInput placeholder="Full Name" [formControl]="fullName">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="E-mail" [formControl]="email" type="email" email />
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-  
-    <mat-card-actions>
+  <div ngClass="expand-width" fxHide.xs></div>
+
+  <mat-card-header>
+    <mat-icon mat-card-avatar>lock</mat-icon>
+    <mat-card-title>Please Sign Up</mat-card-title>
+    <mat-card-subtitle>We'd be happy to have you on board!</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="Full Name" [formControl]="fullName" name="name" autocomplete="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E-mail" [formControl]="email" type="email" email name="email"
+          autocomplete="username email" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div fxFlex></div>
+    <button mat-stroked-button color="primary" (click)="signup()">
       <div fxFlex></div>
-      <button mat-stroked-button color="primary" (click)="signup()">
-        <div fxFlex></div>
-        <div *ngIf="!(busy | async)">SIGN UP</div>
-        <mat-spinner *ngIf="busy | async" [diameter]="35"></mat-spinner>
-        <div fxFlex></div>
-      </button>
+      <div *ngIf="!(busy | async)">SIGN UP</div>
+      <mat-spinner *ngIf="busy | async" [diameter]="35"></mat-spinner>
       <div fxFlex></div>
-    </mat-card-actions>
-  
-    <p *ngIf="errorMessage | async">{{ errorMessage | async }}</p>
-  
-    <mat-card-content>
-      <div fxFlex></div>
-      <p>Already signed up? <a routerLink='/sign-in' routerLinkActive="active">Sign in</a></p>
-    </mat-card-content>
-  
-  </mat-card>
+    </button>
+    <div fxFlex></div>
+  </mat-card-actions>
+
+  <p *ngIf="errorMessage | async">{{ errorMessage | async }}</p>
+
+  <mat-card-content>
+    <div fxFlex></div>
+    <p>Already signed up? <a routerLink='/sign-in' routerLinkActive="active">Sign in</a></p>
+  </mat-card-content>
+
+</mat-card>
