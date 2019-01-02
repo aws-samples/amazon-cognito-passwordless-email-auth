@@ -21,7 +21,7 @@ If you deploy the Serverless Application you'll get a CloudFormation stack with 
 
 #### Pre-requisite
 
-- You need to have a [verified E-Mail address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html) to send the e-mails from. Also, if you don't want the mails to end-up in spam folders, [verify the domain as well](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html).
+- You need to have a [verified e-mail address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html) to send the e-mails from. If your AWS account in still in the [SES sandbox](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html), you also need to verify the e-mail adresses you want to send mails to. Lastly, if you don't want your mails to end up in spam folders, [verify the domain](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html) you use to send mails from as well.
 
 ### Alternative Deployment with AWS SAM CLI
 
@@ -30,7 +30,7 @@ If you deploy the Serverless Application you'll get a CloudFormation stack with 
 1. Download and install [Node.js](https://nodejs.org/en/download/)
 2. Download and install [AWS SAM CLI](https://github.com/awslabs/aws-sam-cli)
 3. Of course you need an AWS account and necessary permissions to create resources in it. Make sure your AWS credentials can be found during deployment, e.g. by making your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY available as environment variables.
-4. You need to have a [verified E-Mail address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html) to send the e-mails from. Also, if you don't want the mails to end up in spam folders, [verify the domain as well](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html).
+4. You need to have a [verified e-mail address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html) to send the e-mails from. If your AWS account in still in the [SES sandbox](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html), you also need to verify the e-mail adresses you want to send mails to. Lastly, if you don't want your mails to end up in spam folders, [verify the domain](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html) you use to send mails from as well.
 5. You need an existing S3 bucket to use for the SAM deployment. Create an empty bucket.
 
 NOTE: To deploy this application _**please pick an AWS Region in which you can use Amazon Simple E-Mail Service (i.e. us-east-1, us-west-2 or eu-west-1)**_ and create all resources (including the S3 bucket) in that region. This is not a hard requirement for setting up e-mail auth in Cognito in general; but it is so in this demo application to keep things simple.
