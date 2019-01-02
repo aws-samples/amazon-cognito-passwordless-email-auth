@@ -16,7 +16,7 @@
         <form [formGroup]="userDetailsForm" fxLayout="column">
             <div *ngFor="let detail of (userDetails | async)" fxLayout="row">
                 <mat-form-field fxFlex>
-                    <input matInput placeholder="{{ detail.Name }}" [formControlName]="detail.Name">
+                    <input matInput readonly placeholder="{{ detail.Name }}" [formControlName]="detail.Name">
                 </mat-form-field>
             </div>
             <div>
