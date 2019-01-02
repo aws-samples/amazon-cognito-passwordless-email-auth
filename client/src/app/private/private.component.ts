@@ -36,10 +36,7 @@ export class PrivateComponent implements OnInit {
     try {
       const userDetails = await this.auth.getUserDetails();
       userDetails.forEach(detail => {
-        const control = new FormControl({
-          value: detail.getValue(),
-          disabled: true,
-        });
+        const control = new FormControl(detail.getValue());
         this.userDetailsForm.addControl(detail.getName(), control);
       });
       this.userDetails_.next(userDetails);
