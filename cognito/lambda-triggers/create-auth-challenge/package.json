@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crypto-secure-random-digit": "^1.0.7"
+    "crypto-secure-random-digit": "^1.0.9"
   },
   "devDependencies": {}
 }

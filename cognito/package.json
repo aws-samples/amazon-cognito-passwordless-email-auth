@@ -16,11 +16,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/aws-lambda": "^8.10.17",
-    "@types/node": "^10.12.18",
-    "aws-sdk": "^2.382.0",
-    "crypto-secure-random-digit": "^1.0.7",
-    "typescript": "^3.2.2"
+    "@types/aws-lambda": "^8.10.39",
+    "@types/node": "^10.17.9",
+    "aws-sdk": "^2.589.0",
+    "crypto-secure-random-digit": "^1.0.9",
+    "typescript": "^3.7.3"
   },
   "devDependencies": {}
 }
