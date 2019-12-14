@@ -15,7 +15,7 @@ Metadata:
     SpdxLicenseId: MIT-0
     LicenseUrl: LICENSE
     ReadmeUrl: README.md
-    Labels: ['cognito', 'passwordless', 'authentication', 'auth', 'sample']
+    Labels: ["cognito", "passwordless", "authentication", "auth", "sample"]
     HomepageUrl: https://github.com/aws-samples/amazon-cognito-passwordless-email-auth/tree/master/cognito
     SemanticVersion: 0.1.1
     SourceCodeUrl: https://github.com/aws-samples/amazon-cognito-passwordless-email-auth/tree/master/cognito
@@ -71,6 +71,44 @@ Resources:
       Handler: pre-sign-up.handler
       Runtime: nodejs10.x
 
+  PostAuthentication:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda-triggers/post-authentication/
+      Handler: post-authentication.handler
+      Runtime: nodejs10.x
+      Role: !GetAtt PostAuthenticationRole.Arn
+
+  PostAuthenticationRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  SetUserAttributesPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: allow-set-user-attributes
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - cognito-idp:AdminUpdateUserAttributes
+            Resource:
+              - !GetAtt UserPool.Arn
+      Roles:
+        - !Ref PostAuthenticationRole
+
   UserPool:
     Type: "AWS::Cognito::UserPool"
     Properties:
@@ -99,6 +137,7 @@ Resources:
         DefineAuthChallenge: !GetAtt DefineAuthChallenge.Arn
         PreSignUp: !GetAtt PreSignUp.Arn
         VerifyAuthChallengeResponse: !GetAtt VerifyAuthChallengeResponse.Arn
+        PostAuthentication: !GetAtt PostAuthentication.Arn
 
   DefineAuthChallengeInvocationPermission:
     Type: AWS::Lambda::Permission
@@ -126,6 +165,13 @@ Resources:
     Properties:
       Action: lambda:InvokeFunction
       FunctionName: !GetAtt PreSignUp.Arn
+      Principal: cognito-idp.amazonaws.com
+      SourceArn: !GetAtt UserPool.Arn
+  PostAuthenticationInvocationPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt PostAuthentication.Arn
       Principal: cognito-idp.amazonaws.com
       SourceArn: !GetAtt UserPool.Arn
 
