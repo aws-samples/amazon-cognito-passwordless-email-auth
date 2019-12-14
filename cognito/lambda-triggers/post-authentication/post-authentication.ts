@@ -4,10 +4,9 @@
 import { CognitoUserPoolTriggerHandler } from 'aws-lambda';
 import { CognitoIdentityServiceProvider } from 'aws-sdk';
 
-const CUP_CLIENT = new CognitoIdentityServiceProvider();
+const cup = new CognitoIdentityServiceProvider();
 
 export const handler: CognitoUserPoolTriggerHandler = async event => {
-    console.log(JSON.stringify(event));
     const params: CognitoIdentityServiceProvider.AdminUpdateUserAttributesRequest = {
         UserPoolId: event.userPoolId,
         UserAttributes: [{
@@ -16,6 +15,6 @@ export const handler: CognitoUserPoolTriggerHandler = async event => {
         }],
         Username: event.userName!,
     };
-    await CUP_CLIENT.adminUpdateUserAttributes(params).promise();
+    await cup.adminUpdateUserAttributes(params).promise();
     return event;
 };
