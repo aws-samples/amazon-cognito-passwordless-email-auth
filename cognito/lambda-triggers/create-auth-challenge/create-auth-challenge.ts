@@ -22,7 +22,7 @@ export const handler: CognitoUserPoolTriggerHandler = async event => {
         // There's an existing session. Don't generate new digits but
         // re-use the code from the current session. This allows the user to
         // make a mistake when keying in the code and to then retry, rather
-        // the needing to e-mail the user an all new code again.    
+        // then needing to e-mail the user an all new code again.    
         const previousChallenge = event.request.session.slice(-1)[0];
         secretLoginCode = previousChallenge.challengeMetadata!.match(/CODE-(\d*)/)![1];
     }
