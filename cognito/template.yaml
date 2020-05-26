@@ -38,14 +38,14 @@ Resources:
     Properties:
       CodeUri: lambda-triggers/define-auth-challenge/
       Handler: define-auth-challenge.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
 
   CreateAuthChallenge:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lambda-triggers/create-auth-challenge/
       Handler: create-auth-challenge.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       Environment:
         Variables:
           SES_FROM_ADDRESS: !Ref SESFromAddress
@@ -62,21 +62,21 @@ Resources:
     Properties:
       CodeUri: lambda-triggers/verify-auth-challenge-response/
       Handler: verify-auth-challenge-response.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
 
   PreSignUp:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lambda-triggers/pre-sign-up/
       Handler: pre-sign-up.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
 
   PostAuthentication:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lambda-triggers/post-authentication/
       Handler: post-authentication.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       Role: !GetAtt PostAuthenticationRole.Arn
 
   PostAuthenticationRole:
