@@ -17,7 +17,7 @@ Metadata:
     ReadmeUrl: README.md
     Labels: ["cognito", "passwordless", "authentication", "auth", "sample"]
     HomepageUrl: https://github.com/aws-samples/amazon-cognito-passwordless-email-auth/tree/master/cognito
-    SemanticVersion: 1.0.2
+    SemanticVersion: 1.0.3
     SourceCodeUrl: https://github.com/aws-samples/amazon-cognito-passwordless-email-auth/tree/master/cognito
 
 Globals:
