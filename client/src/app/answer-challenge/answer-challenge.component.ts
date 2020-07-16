@@ -22,12 +22,12 @@ export class AnswerChallengeComponent implements OnInit, OnDestroy, AfterContent
   digit4 = new FormControl('');
   digit5 = new FormControl('');
   digit6 = new FormControl('');
-  @ViewChild('digit1el') digit1element: ElementRef;
-  @ViewChild('digit2el') digit2element: ElementRef;
-  @ViewChild('digit3el') digit3element: ElementRef;
-  @ViewChild('digit4el') digit4element: ElementRef;
-  @ViewChild('digit5el') digit5element: ElementRef;
-  @ViewChild('digit6el') digit6element: ElementRef;
+  @ViewChild('digit1el', { static: true }) digit1element: ElementRef;
+  @ViewChild('digit2el', { static: true }) digit2element: ElementRef;
+  @ViewChild('digit3el', { static: true }) digit3element: ElementRef;
+  @ViewChild('digit4el', { static: true }) digit4element: ElementRef;
+  @ViewChild('digit5el', { static: true }) digit5element: ElementRef;
+  @ViewChild('digit6el', { static: true }) digit6element: ElementRef;
 
   private errorMessage_ = new BehaviorSubject('');
   public errorMessage = this.errorMessage_.asObservable();
