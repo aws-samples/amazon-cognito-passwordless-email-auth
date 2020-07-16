@@ -16,14 +16,12 @@ import { PrivateComponent } from './private/private.component';
 import { AnswerChallengeComponent } from './answer-challenge/answer-challenge.component';
 import { SignOutComponent } from './sign-out/sign-out.component';
 
-import {
-  MatCardModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatIconModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const MAT_MODULES = [
