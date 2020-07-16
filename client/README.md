@@ -2,7 +2,7 @@
 
 This is a client web app that provides custom sign-in and sign-up pages to authenticate against Amazon Cognito using passwordless e-mail auth.
 
-This web app is written in Angular 7 but the integration with Amazon Cognito should be mostly identical in other frameworks (React, Vue, Plain HTML+JS). Check out this file: `src/app/auth.service.ts` (and disregard the little Angular Boilerplate)
+This web app is written in Angular 9 but the integration with Amazon Cognito should be mostly identical in other frameworks (React, Vue, Plain HTML+JS). Check out this file: `src/app/auth.service.ts` (and disregard the little Angular Boilerplate)
 
 The Amazon Cognito User Pool back end that implements the passwordless e-mail auth can be found here: [../cognito](../cognito)
 
