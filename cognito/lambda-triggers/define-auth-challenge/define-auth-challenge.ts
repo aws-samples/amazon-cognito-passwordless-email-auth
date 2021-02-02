@@ -1,9 +1,9 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import { CognitoUserPoolTriggerHandler } from 'aws-lambda';
+import { DefineAuthChallengeTriggerHandler } from 'aws-lambda';
 
-export const handler: CognitoUserPoolTriggerHandler = async event => {
+export const handler: DefineAuthChallengeTriggerHandler = async event => {
     if (event.request.session &&
         event.request.session.find(attempt => attempt.challengeName !== 'CUSTOM_CHALLENGE')) {
         // We only accept custom challenges; fail auth
