@@ -1,13 +1,13 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import { CognitoUserPoolTriggerHandler } from 'aws-lambda';
+import { CreateAuthChallengeTriggerHandler } from 'aws-lambda';
 import { randomDigits } from 'crypto-secure-random-digit';
 import { SES } from 'aws-sdk';
 
 const ses = new SES();
 
-export const handler: CognitoUserPoolTriggerHandler = async event => {
+export const handler: CreateAuthChallengeTriggerHandler = async event => {
 
     let secretLoginCode: string;
     if (!event.request.session || !event.request.session.length) {

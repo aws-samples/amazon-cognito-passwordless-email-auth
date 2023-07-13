@@ -1,12 +1,12 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import { CognitoUserPoolTriggerHandler } from 'aws-lambda';
+import { PostAuthenticationTriggerHandler } from 'aws-lambda';
 import { CognitoIdentityServiceProvider } from 'aws-sdk';
 
 const cup = new CognitoIdentityServiceProvider();
 
-export const handler: CognitoUserPoolTriggerHandler = async event => {
+export const handler: PostAuthenticationTriggerHandler = async event => {
     if (event.request.userAttributes.email_verified !== 'true') {
       const params: CognitoIdentityServiceProvider.AdminUpdateUserAttributesRequest = {
           UserPoolId: event.userPoolId,
